@@ -38,6 +38,12 @@
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
+<script type="text/javascript" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.16/sorting/date-uk.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="//momentjs.com/downloads/moment.min.js"></script>
+<script type="text/javascript" src="/js/scripts.js"></script>
+
 @include('adminlte::plugins', ['type' => 'js'])
 
 @yield('adminlte_js')
