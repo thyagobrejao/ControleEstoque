@@ -1,5 +1,5 @@
-@extends('layout.principal')
-@section('conteudo')
+@extends('adminlte::page')
+@section('content')
 
 <form class="form-horizontal" method="post" action="/CadastrarCategoria/adiciona">
       <fieldset>

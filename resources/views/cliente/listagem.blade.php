@@ -1,5 +1,5 @@
-@extends('layout.principal')
-@section('conteudo')
+@extends('adminlte::page')
+@section('content')
 <div class="container">
   <h2>Clientes</h2>     
   <ul>

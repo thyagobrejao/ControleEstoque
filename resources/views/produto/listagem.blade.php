@@ -1,11 +1,9 @@
-@extends('layout.principal')
-@section('conteudo')
+@extends('adminlte::page')
+@section('content')
 <div class="container">
   <h2>Produtos</h2>
   
-  <ul>
-    <li><a href="{{action('ProdutoController@novo')}}">Cadastrar Produto</a></li>
-  </ul>
+  <a class="btn btn-success" href="{{action('ProdutoController@novo')}}">Cadastrar Produto</a>
 
   @if(session()->has('message.level'))
     <div class="alert alert-{{ session('message.level') }}"> 
@@ -14,7 +12,7 @@
   @endif
     
 
-  <table id="listagemProdutos" class="table table-bordered">
+  <table id="listagemProdutos" class="table table-bordered table-responsive table-striped">
     <thead>
       <tr>
         <th>Código Produto</th>

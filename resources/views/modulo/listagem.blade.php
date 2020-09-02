@@ -1,6 +1,6 @@
-@extends('layout.principal')
-@section('conteudo')
-<div class="container">
+@extends('adminlte::page')
+@section('content')
+<div class="container-fluid">
   <h1>Listagem Módulos</h1>     
   <div class="row">
     <div class="col-sm-6 col-md-3">

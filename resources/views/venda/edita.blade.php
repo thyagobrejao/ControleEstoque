@@ -1,5 +1,5 @@
-@extends('layout.principal')
-@section('conteudo')
+@extends('adminlte::page')
+@section('content')
 
 <form class="form-horizontal" method="post" action="/CadastrarVenda/edita/{{ $v->id_venda }}">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
