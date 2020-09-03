@@ -228,10 +228,6 @@ return [
                     'text' => 'Listar Relatórios',
                     'route' => 'Listar Relatorios',
                 ],
-                [
-                    'text' => 'Cadastrar Cliente',
-                    'route' => 'Cadastrar Cliente',
-                ],
             ],
         ],
         [

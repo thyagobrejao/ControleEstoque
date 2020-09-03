@@ -18,7 +18,7 @@ class RelatorioController extends Controller
     public function mostra(RelatorioRequest $request){
 
     	// var_dump($request->all());exit;
- 	
+
 		switch ($request["id_relatorio"]) {
 			case '1':
 				$relatorios = Produto
@@ -47,7 +47,7 @@ class RelatorioController extends Controller
 									DB::raw('count(produtos.id_produto) as contador'))
 							->whereBetween('saidas.created_at', array($request["inicio"],$request["fim"]))
 							->where('vendas.online', '=', 1)
-							->groupBy('produtos.codigo_produto', 
+							->groupBy('produtos.codigo_produto',
 										'produtos.path_image',
 										'produtos.descricao')
 							->getQuery() // Optional: downgrade to non-eloquent builder so we don't build invalid User objects.
@@ -93,7 +93,7 @@ class RelatorioController extends Controller
 		        ->orderBy('contador','DESC')
 		        ->get();
 		        $_REQUEST["id_relatorio"] = $request["id_relatorio"];
-				break;			
+				break;
 
 			case '6':
 				$relatorios = Venda
@@ -158,9 +158,7 @@ class RelatorioController extends Controller
 				echo "Erro Fera!";
 				break;
 		}
-
     	return view('relatorio.formulario')->with(['relatorios' => $relatorios,'_REQUEST' => $_REQUEST]);
-        exit;
-		
+
 	}
 }
