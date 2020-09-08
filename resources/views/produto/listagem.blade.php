@@ -2,15 +2,15 @@
 @section('content')
 <div class="container">
   <h2>Produtos</h2>
-  
+
   <a class="btn btn-success" href="{{action('ProdutoController@novo')}}">Cadastrar Produto</a>
 
   @if(session()->has('message.level'))
-    <div class="alert alert-{{ session('message.level') }}"> 
+    <div class="alert alert-{{ session('message.level') }}">
       {!! session('message.content') !!}
     </div>
   @endif
-    
+
 
   <table id="listagemProdutos" class="table table-bordered table-responsive table-striped">
     <thead>
@@ -25,8 +25,7 @@
         <th>Saldo</th>
         <th>Status</th>
         <th>Total</th>
-        <th>Editar</th>
-        <th>Excluir</th>
+        <th></th>
         <!-- <th>QR Code</th> -->
       </tr>
     </thead>
@@ -41,10 +40,12 @@
           <td>{{ $p->quantidadeEntrada ? $p->quantidadeEntrada : 0  }}</td>
           <td>{{ $p->quantidadeSaida ? $p->quantidadeSaida : 0 }}</td>
           <td>{{ $saldo = $p->quantidadeEntrada - $p->quantidadeSaida}}</td>
-          <td>{{ $saldo == 0 ? "ESGOTADO": "DISPONÍVEL"}}</td>
+          <td>{{ $saldo <= 0 ? "ESGOTADO": "DISPONÍVEL"}}</td>
           <td>R$ {{ $p->valor * $saldo}}</td>
-          <td><a href="/Produtos/mostrar/{{ $p->id_produto }}"><span class="glyphicon glyphicon-pencil"></span></a></td>
-          <td><a href="/Produtos/remove/{{ $p->id_produto }}"><span class="glyphicon glyphicon-trash"></span></a></td>
+          <td>
+            <a href="/Produtos/mostrar/{{ $p->id_produto }}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a href="/Produtos/remove/{{ $p->id_produto }}"><span class="glyphicon glyphicon-trash"></span></a>
+          </td>
           <!-- <td>{!! QrCode::size(150)->generate("purchasestore.com.br/".$p->id_produto); !!}</td> -->
         </tr>
       @endforeach
