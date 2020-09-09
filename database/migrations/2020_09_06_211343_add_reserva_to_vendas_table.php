@@ -14,9 +14,12 @@ class AddReservaToVendasTable extends Migration
     public function up()
     {
         Schema::table('vendas', function (Blueprint $table) {
-            $table->boolean('reserva')->nullable();
             $table->dropColumn('online');
             $table->dropColumn('divulgacao');
+        });
+
+        Schema::table('saidas', function (Blueprint $table) {
+            $table->boolean('reserva')->nullable();
         });
     }
 
@@ -28,9 +31,12 @@ class AddReservaToVendasTable extends Migration
     public function down()
     {
         Schema::table('vendas', function (Blueprint $table) {
-            $table->dropColumn('reserva');
             $table->boolean('online');
             $table->boolean('divulgacao');
+        });
+
+        Schema::table('saidas', function (Blueprint $table) {
+            $table->dropColumn('reserva');
         });
     }
 }
